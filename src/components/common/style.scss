@@ -1,0 +1,448 @@
+html, button, input,blockquote, optgroup, select, textarea, body, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+  font-family: 'Saira Semi Condensed', sans-serif;
+  margin: 0;
+  padding: 0;
+  word-wrap: break-word;
+}
+
+html {
+  font-size: 16px
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+  background: #fefefe;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif;
+  font-weight: normal;
+  line-height: 1.5;
+  /*color: #0a0a0a;*/
+  color: #1A1A1A;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /*font-size: medium;*/
+  // max-width: 1004px;
+
+}
+
+a {
+  line-height: inherit;
+  color: #666666;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+ul,li {
+  margin: 0;
+padding: 0;
+list-style-type: none;
+}
+dl,dt,dd{
+  margin: 0;
+  padding: 0;
+}
+#layout{
+  width: 100%;
+  height: 800px;
+
+
+  
+  text-rendering: optimizespeed; /* Webkit: fixes text-rendering: optimizeLegibility */
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+
+  /* Prevents distributing space between rows */
+  -webkit-align-content: flex-start;
+      -ms-flex-line-pack: start;
+          align-content: flex-start;
+
+
+
+}
+#nav,#list,#main,#mask{
+  display: inline-block;
+  height: 100%;
+}
+#mask{
+  width: 87.5000%;
+  *width: 87.4690%;
+  text-align: center;
+}
+#nav {
+  width: 12.5000%;
+*width: 12.4690%;
+background: rgb(37, 42, 58);
+text-align: center;
+}
+
+
+#nav .active  {
+  background: rgb(55, 60, 90);
+}
+#nav a {
+color: #fff;
+text-align: right;
+padding: 0.5rem 1rem;
+display: block;
+}
+
+
+.sign {
+  text-align: left;
+  color: #b3d4fc
+}
+
+
+.sign > .html {
+
+    background-color: #41ccb4;
+
+}
+.sign > .post {
+  background-color: #1b98f8;
+}
+.sign > .get {
+  background-color: #ffc94c;
+}
+.sign > span {
+
+    width: 0.8em;
+    height: 0.8em;
+    display: inline-block;
+    border-radius: 0.1em;
+    background: #ffc94c;
+        background-color: rgb(255, 201, 76);
+    margin-left: 3em;
+    margin-right: 1em;
+    margin-top: 0.8em;
+
+}
+
+#list {
+  width: 25%;
+    *width: 24.9690%;
+}
+
+
+#list >dl {
+  padding: 0.9rem 1rem;
+border-bottom: 1px solid #ddd;
+border-right: 1px solid #ddd;
+border-left: 6px solid transparent;
+text-align: left;
+margin: 0;
+font-size: 90%;
+background-color: #eee;
+cursor: pointer;
+}
+#list >.html {
+  border-left: 6px solid #41ccb4;
+}
+#list >.post {
+  border-left: 6px solid #1b98f8;
+}
+#list >.get {
+  border-left: 6px solid #ffc94c;
+}
+#list > .active {
+  border-right: none;
+  background-color: #fff;
+}
+#list dd {
+  font-size: 70%;
+}
+#list .date {
+  padding-left: 10%;
+}
+#main {
+  width: 62.5000%;
+  *width: 62.4690%;
+}
+
+
+
+
+
+#main >div{
+  margin-left: 1rem;
+}
+
+#main h1 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+#main h2 {
+  text-indent: 1rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  text-align: left;
+  font-size: 1.2rem;
+
+}
+
+#main h3 {
+
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+#main h2::before {
+  /*padding-right: 0.3em;*/
+  /*margin-left: -0.9em;*/
+  margin-right: 0.5rem;
+  color: #1993fb;
+  content: "#";
+}
+
+#main > p, #main h3, #main > div, #main > ul, #main > pre, #main > table, #main blockquote {
+  // margin-left: 2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#main li {
+  list-style-type: disc;
+  margin-left: 1rem;
+  font-size: 80%;
+}
+
+#main table {
+  max-width: 90%;
+  min-width: 50%;
+  border: 1px solid #ebebeb;
+
+  border-spacing: 0;
+  text-align: left;
+  border-radius: 4px 4px 0 0;
+  overflow: hidden;
+  /*font-size: 12px;*/
+  word-break: break-all;
+  border-collapse: collapse;
+  min-height: 25px;
+  line-height: 25px;
+
+}
+
+#main th {
+  text-align: center;
+}
+
+#main th, #main td {
+  border: 1px solid #ebebeb;
+  padding: 0 0.5rem;
+  font-size: 0.8rem;
+
+}
+
+#main code {
+  color: #905;
+  text-shadow: antiquewhite;
+  /*border: 1px solid #ffc94c;*/
+  background-color: #f9f2f4;
+  border-radius: 0.2rem;
+  padding: 0 0.5rem;
+
+}
+#main pre{
+  width: 90%;
+  background-color: #F6F6F3;
+padding: 1rem;
+overflow: auto;
+}
+#main pre code {
+  color: #905;
+  text-shadow: none;
+  /*border: 1px solid #ffc94c;*/
+  background: none;
+  border-radius: 0;
+  padding: 0 ;
+
+}
+
+
+#main blockquote {
+  color: gray;
+  padding: 0 0.5rem;
+  border: dashed 1px;
+}
+
+#main blockquote p {
+  font-size: 0.6rem;
+}
+
+
+
+
+
+
+
+
+/*@media screen and (min-width:376px) and (max-width:414px){html{font-size:12px}}*/
+/*@media screen and (min-width:415px) and (max-width:639px){html{font-size:15px}}*/
+/*@media screen and (min-width:640px) and (max-width:719px){html{font-size:20px}}*/
+/*@media screen and (min-width:720px) and (max-width:749px){html{font-size:22.5px}}*/
+/*@media screen and (min-width:750px) and (max-width:799px){html{font-size:23.5px}}*/
+/*@media screen and (min-width:800px){html{font-size:25px}}*/
+
+
+/* PrismJS 1.15.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+* prism.js default theme for JavaScript, CSS and HTML
+* Based on dabblet (http://dabblet.com)
+* @author Lea Verou
+*/
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: black;
+  background: none;
+  text-shadow: 0 1px white;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 1em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+
+@media print {
+  code[class*="language-"],
+  pre[class*="language-"] {
+      text-shadow: none;
+  }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: slategray;
+}
+
+.token.punctuation {
+  color: #999;
+}
+
+.namespace {
+  opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #9a6e3a;
+  background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #07a;
+}
+
+.token.function,
+.token.class-name {
+  color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #e90;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+
+#mask > img{
+  margin: auto;
+  width: 320px;
+  height: 320px;
+  margin-top: 4rem;
+  display: inline-block;
+}
+
