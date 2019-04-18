@@ -109,32 +109,10 @@ class App extends React.Component<any,IApp> {
                 list:SndList(MDparse(cnt))
             });
         })
-        // for(let i=0;i<d.length;i++) {
-        //     //console.log(d[i]);
-        //     //let raw=d[i].file
-        //     let bf = new Buffer(d[i].file, 'base64')
-        //     const text = bf.toString();
-        //     bf = new Buffer(d[i].md, 'base64')
-        //     const cnt = bf.toString();
-            
-        //     ;
-
-        //     items.push({
-        //         key:d[i].file,
-        //         text,
-        //         ts:d[i].ts,
-        //         render:MDparse(cnt),
-                
-        //         list:SndList(MDparse(cnt))
-        //     });
-        // }
         this.setState({items});
     }
-    fetch('/doc.json',{
-        
+    fetch('/doc.json?'+(new Date()).getSeconds().toString(),{
         method: 'GET',
-        
-
       }).then(checkStatus).then((response:Response)=>{return response.json()}).then(fn);
   }
   
