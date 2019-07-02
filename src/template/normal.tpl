@@ -11,7 +11,6 @@
     <link rel="mask-icon" sizes="any" href="https://o.tiyee.net/i/logo.svg" color="black" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-   
 </head>
 
 <body >

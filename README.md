@@ -1,3 +1,5 @@
+![哥玛兽](./gemamon.jpg)
+
 # gomamon
 Transform Markdown(and other static files with transformers) into a SPA website using React.
 

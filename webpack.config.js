@@ -1,30 +1,28 @@
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-var ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const isDebug = process.env.NODE_ENV === 'development';
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const isDebug = process.env.NODE_ENV === "development";
 const root_path = __dirname;
 
 module.exports = {
-  mode: isDebug ? 'development' : 'production',
+  mode: isDebug ? "development" : "production",
   context: root_path,
   entry: {
-    index: path.join(__dirname, 'src/index.tsx'),
-    
+    index: path.join(__dirname, "src/index.tsx")
   },
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: '[name].bundle.js'
+    path: path.join(__dirname, "dist"),
+    filename: "[name].bundle.js"
   },
-  devtool: isDebug ? 'source-map' : false, // 'source-map', // 'source-map', //'cheap-eval-source-map',
+  devtool: isDebug ? "source-map" : false, // 'source-map', // 'source-map', //'cheap-eval-source-map',
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: ['.ts', '.tsx', '.js', '.json', 'scss'],
-    modules: ['src', 'node_modules']
+    extensions: [".ts", ".tsx", ".js", ".json", "scss"],
+    modules: ["src", "node_modules"]
   },
   module: {
     rules: [
@@ -32,30 +30,28 @@ module.exports = {
         test: /\.tsx?$/,
         loaders: [
           {
-            loader: 'babel-loader',
+            loader: "babel-loader",
             options: {
               cacheDirectory: true,
               presets: [
                 [
-                  '@babel/preset-env',
+                  "@babel/preset-env",
                   {
-                    targets: '> 0.25%, not dead'
+                    targets: "> 0.25%, not dead"
                   }
                 ],
-                '@babel/react'
+                "@babel/react"
               ],
               babelrc: false,
-              plugins: [
-
-              ]
+              plugins: []
             }
           },
           {
-            loader: 'ts-loader',
+            loader: "ts-loader",
             options: {
               transpileOnly: true,
               compilerOptions: {
-                module: 'es6'
+                module: "es6"
               }
             }
           }
@@ -66,52 +62,47 @@ module.exports = {
         test: /\.(less)$/,
         use: isDebug
           ? [
-            'style-loader',
-            'css-loader',
+              "style-loader",
+              "css-loader",
 
-            {
-              loader: 'less-loader',
-              options: {
-                javascriptEnabled: true
+              {
+                loader: "less-loader",
+                options: {
+                  javascriptEnabled: true
+                }
               }
-            }
-          ]
+            ]
           : [
-            {
-              loader: MiniCssExtractPlugin.loader
-            },
-            {
-              loader: 'css-loader',
-              options: {
-                sourceMap: true
+              {
+                loader: MiniCssExtractPlugin.loader
+              },
+              {
+                loader: "css-loader",
+                options: {
+                  sourceMap: true
+                }
+              },
+              {
+                loader: "less-loader",
+                options: {
+                  javascriptEnabled: true
+                }
               }
-            },
-            {
-              loader: 'less-loader',
-              options: {
-                javascriptEnabled: true
-              }
-            }
 
-            // "less-loader?javascriptEnabled=true"
-          ]
+              // "less-loader?javascriptEnabled=true"
+            ]
       },
       {
         test: /\.(sa|sc|c)ss$/,
-        use: [
-          isDebug ? 'style-loader' : MiniCssExtractPlugin.loader,
-          'css-loader',
-
-          'sass-loader'
-        ]
+        use: [isDebug ? "style-loader" : MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
       },
 
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         use: [
-          'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
+          "file-loader?hash=sha512&digest=hex&name=[hash].[ext]",
           {
-            loader: 'image-webpack-loader',
+            loader: "image-webpack-loader",
             options: {
               optipng: {
                 optimizationLevel: 7
@@ -120,7 +111,7 @@ module.exports = {
                 interlaced: false
               },
               pngquant: {
-                quality: '65-90',
+                quality: "65-90",
                 speed: 4
               },
               mozjpeg: {
@@ -133,11 +124,11 @@ module.exports = {
       },
       {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        use: 'url-loader?limit=10000&mimetype=application/font-woff'
+        use: "url-loader?limit=10000&mimetype=application/font-woff"
       },
       {
         test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        use: 'file-loader'
+        use: "file-loader"
       }
     ]
   },
@@ -155,10 +146,10 @@ module.exports = {
       new OptimizeCSSAssetsPlugin({})
     ],
     runtimeChunk: {
-      name: 'manifest'
+      name: "manifest"
     },
     splitChunks: {
-      chunks: 'async',
+      chunks: "async",
       minSize: 30000,
       minChunks: 1,
       maxAsyncRequests: 5,
@@ -166,8 +157,8 @@ module.exports = {
       name: false,
       cacheGroups: {
         vendor: {
-          name: 'vendor',
-          chunks: 'all',
+          name: "vendor",
+          chunks: "all",
           priority: 0,
           minChunks: 2,
           reuseExistingChunk: false,
@@ -175,9 +166,8 @@ module.exports = {
           enforce: true
         },
         commons: {
-          // async 设置提取异步代码中的公用代码
-          chunks: 'async',
-          name: 'commons',
+          chunks: "async",
+          name: "commons",
           /**
            * minSize 默认为 30000
            * 想要使代码拆分真的按照我们的设置来
@@ -188,9 +178,9 @@ module.exports = {
           minChunks: 2
         },
         styles: {
-          name: 'styles',
+          name: "styles",
           test: /\.css$/,
-          chunks: 'all',
+          chunks: "all",
           enforce: true
         }
       }
@@ -201,10 +191,8 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: isDebug
-          ? JSON.stringify('development')
-          : JSON.stringify('production')
+      "process.env": {
+        NODE_ENV: isDebug ? JSON.stringify("development") : JSON.stringify("production")
       }
     }),
     new webpack.NamedModulesPlugin(),
@@ -222,30 +210,20 @@ module.exports = {
     //     }
     // ),
     new MiniCssExtractPlugin({
-      filename: isDebug ? '[name].css' : '[name].[chunkhash:8].css',
-      chunkFilename: isDebug ? '[id].css' : '[id].[chunkhash:8].css'
+      filename: isDebug ? "[name].css" : "[name].[chunkhash:8].css",
+      chunkFilename: isDebug ? "[id].css" : "[id].[chunkhash:8].css"
     }),
 
     new HtmlWebpackPlugin({
-      filename: path.join(__dirname, 'index.html'),
-      template: path.join(__dirname, 'src/template/normal.tpl'),
-      inject: 'body',
+      filename: path.join(__dirname, "index.html"),
+      template: path.join(__dirname, "src/template/normal.tpl"),
+      inject: "body",
       hash: true,
       cache: true,
       minify: !isDebug,
 
-      chunks: ['vendor', 'index', 'manifest', 'commons'] // 这个模板对应上面那个节点
+      chunks: ["vendor", "index", "manifest", "commons"]
     }),
-
-
-    // new webpack.DefinePlugin({
-    //   //  __RSUITE_CLASSNAME_PREFIX__: JSON.stringify('hy-')
-    //   }),
-    new ForkTsCheckerWebpackPlugin({
-      tslint: false,
-      workers: 2
-    }),
-    // new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /nb/)
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/)
   ]
 

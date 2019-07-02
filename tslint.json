@@ -3,19 +3,16 @@
     "tslint:recommended",
     "tslint-react",
     "tslint-config-prettier",
- 
+    "@uifabric/tslint-rules"
   ],
   "linterOptions": {
-    "exclude": [
-      "config/**/*.js",
-      "node_modules/**/*.ts",
-      "coverage/lcov-report/*.js"
-    ]
+    "exclude": ["*.json", "config/**/*.js", "node_modules/**/*.ts", "coverage/lcov-report/*.js"]
   },
   "rules": {
     "file-name-casing": [false, "camel-case"],
     "object-literal-sort-keys": false,
-    "no-unnecessary-generics": false,
+    "no-unnecessary-generics": true,
+    "jsx-alignment": true,
     "semicolon": [true, "always", "ignore-bound-class-methods"]
   }
 }
