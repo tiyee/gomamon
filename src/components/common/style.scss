@@ -108,6 +108,7 @@ dd {
 #nav > div {
   position: absolute;
   min-width: 120px;
+  scroll-behavior: smooth;
 }
 
 #nav .active {
@@ -154,6 +155,7 @@ dd {
 #list > div {
   position: absolute;
   min-width: 245px;
+  scroll-behavior: smooth;
 }
 #list > div > dl {
   padding: 0.9rem 1rem;
