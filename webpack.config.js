@@ -3,7 +3,7 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const UglifyJsPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const isDebug = process.env.NODE_ENV === "development";
 const root_path = __dirname;
@@ -37,7 +37,7 @@ module.exports = {
                 [
                   "@babel/preset-env",
                   {
-                    targets: "> 0.25%, not dead"
+                    targets: " last 2 versions, > 5%, safari tp"
                   }
                 ],
                 "@babel/react"
@@ -136,10 +136,14 @@ module.exports = {
   optimization: {
     minimizer: [
       new UglifyJsPlugin({
+        extractComments: false,
         cache: true,
         parallel: true,
-        sourceMap: true,
-        uglifyOptions: {
+        sourceMap: !!isDebug,
+        terserOptions: {
+          ie8: false,
+          safari10: false,
+          compress: true,
           warnings: !!isDebug
         }
       }),
@@ -199,15 +203,12 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(true),
     // new CleanWebpackPlugin(
-    //     [
-    //         'dict/*.js',
-    //         'dict/cached_uglify/cached_uglify/*.js'
-    //     ], // 匹配删除的文件
-    //     {
-    //         root: __dirname, // 根目录
-    //         verbose: true, // 开启在控制台输出信息
-    //         dry: false // 启用删除文件
-    //     }
+    //   ["dist/*.js", "dist/*.css"], // 匹配删除的文件
+    //   {
+    //     root: __dirname, // 根目录
+    //     verbose: true, // 开启在控制台输出信息
+    //     dry: false // 启用删除文件
+    //   }
     // ),
     new MiniCssExtractPlugin({
       filename: isDebug ? "[name].css" : "[name].[chunkhash:8].css",
