@@ -71,7 +71,7 @@ dd {
 }
 #layout {
   width: 100%;
-  height: 800px;
+
   text-rendering: optimizespeed; /* Webkit: fixes text-rendering: optimizeLegibility */
   display: -webkit-box;
   display: -webkit-flex;
@@ -103,6 +103,11 @@ dd {
   *width: 12.469%;
   background: rgb(37, 42, 58);
   text-align: center;
+  position: relative;
+}
+#nav > div {
+  position: absolute;
+  min-width: 120px;
 }
 
 #nav .active {
@@ -144,9 +149,13 @@ dd {
 #list {
   width: 25%;
   *width: 24.969%;
+  position: relative;
 }
-
-#list > dl {
+#list > div {
+  position: absolute;
+  min-width: 245px;
+}
+#list > div > dl {
   padding: 0.9rem 1rem;
   border-bottom: 1px solid #ddd;
   border-right: 1px solid #ddd;
@@ -157,16 +166,16 @@ dd {
   background-color: #eee;
   cursor: pointer;
 }
-#list > .html {
+#list > div > .html {
   border-left: 6px solid #41ccb4;
 }
-#list > .post {
+#list > div > .post {
   border-left: 6px solid #1b98f8;
 }
-#list > .get {
+#list > div > .get {
   border-left: 6px solid #ffc94c;
 }
-#list > .active {
+#list > div > .active {
   border-right: none;
   background-color: #fff;
 }
