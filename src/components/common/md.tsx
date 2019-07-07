@@ -48,7 +48,6 @@ renderer.code = (code: string, infostring: string, escaped: boolean) => {
   return `<pre><code class="language-${infostring}">${html}</code></pre>`;
 };
 renderer.heading = (text: string, level: number): string => {
-  console.log(text);
   const b = Buffer.from(text, 'utf-8');
 
   const key = b.toString('base64');

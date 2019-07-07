@@ -43,10 +43,10 @@ class App extends React.Component<{}, IApp> {
   public componentWillUnmount = () => {
     const _this = this;
     window.removeEventListener('scroll', e => {
-      _this.handleScroll(e);
+      _this.handleScroll();
     });
   };
-  public handleScroll = (e: React.MouseEvent<Element, MouseEvent>) => {
+  public handleScroll = () => {
     // console.log(e.pageX, e.pageY);
     const main = document.querySelector('#main');
     let { h } = this.state;
@@ -54,7 +54,7 @@ class App extends React.Component<{}, IApp> {
       const mainH = main.scrollHeight;
       h = mainH;
     }
-    const y = e.pageY;
+    const y = window.pageYOffset;
     if (y !== undefined) {
       this.setState({ y, h });
     }
@@ -173,7 +173,7 @@ class App extends React.Component<{}, IApp> {
       .then(fn);
     const _this = this;
     window.addEventListener('scroll', e => {
-      _this.handleScroll(e);
+      _this.handleScroll();
     });
     const body = document.querySelector('body');
 
