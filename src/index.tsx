@@ -43,7 +43,6 @@ class App extends React.Component<{}, IApp> {
               const active = item.key === nav ? 'active' : '';
               return (
                 <li key={item.key} className={active}>
-                  // tslint:disable-next-line: jsx-no-lambda
                   <a onClick={() => this._navClick(item)} href="#">
                     {item.text}
                   </a>
@@ -71,10 +70,9 @@ class App extends React.Component<{}, IApp> {
         ) : (
           <div id="list">
             {list.map((item: IList) => {
-              const active = item.url == snd ? 'active' : '';
+              const active = item.url === snd ? 'active' : '';
               return (
                 <dl
-                  // tslint:disable-next-line: jsx-no-lambda
                   onClick={() => {
                     this._listClick(item);
                   }}
