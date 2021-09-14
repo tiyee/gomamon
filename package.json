@@ -10,6 +10,7 @@
         "@babel/core": "latest",
         "@babel/preset-env": "latest",
         "@babel/preset-react": "latest",
+        "@types/cheerio": "^0.22.21",
         "@types/node": "latest",
         "babel-loader": "latest",
         "cheerio": "latest",
@@ -35,11 +36,6 @@
         "dev": "export NODE_ENV=development; webpack --mode=development ; unset NODE_ENV"
     },
     "devDependencies": {
-        "eslint": "latest",
-        "eslint-config-prettier": "latest",
-        "eslint-plugin-prettier": "latest",
-        "eslint-plugin-react": "latest",
-        "prettier": "latest",
         "@types/classnames": "latest",
         "@types/marked": "latest",
         "@types/node": "latest",
@@ -50,10 +46,15 @@
         "@types/react-dom": "latest",
         "@typescript-eslint/eslint-plugin": "latest",
         "@typescript-eslint/parser": "latest",
-        "optimize-css-assets-webpack-plugin": "latest",
-        "terser-webpack-plugin": "latest",
-        "mini-css-extract-plugin": "latest",
+        "eslint": "latest",
+        "eslint-config-prettier": "latest",
+        "eslint-plugin-prettier": "latest",
+        "eslint-plugin-react": "latest",
         "html-webpack-plugin": "latest",
+        "mini-css-extract-plugin": "latest",
+        "optimize-css-assets-webpack-plugin": "latest",
+        "prettier": "latest",
+        "terser-webpack-plugin": "latest",
         "typescript": "latest"
     }
 }
